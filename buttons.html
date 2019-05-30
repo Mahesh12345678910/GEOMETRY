@@ -1,0 +1,104 @@
+<html>
+<body>
+<script>
+function circle()
+{
+var s="<center><b>radius</b> <input type='number' id='rad'><br><button onclick='circleparameters()'>SUBMIT</button></center>";
+document.write("<center><h1>ENTER THE RADIUS OF CIRCLE IN PIXELS</h1></center>"+s);
+}
+function circleparameters(){
+var num1=parseInt(document.getElementById('rad').value);
+var area=Math.PI*num1*num1;
+var circumference=2*Math.PI*num1;
+document.write("<center><h1>AREA OF CIRCLE IS "+area+"</h1></center>");
+document.write("<center><h1>CIRCUMFERENCE OF CIRCLE IS "+circumference+"</h1></center>");
+var s1="<center><canvas id='circle' width='1000' height='1000'></center>";
+document.write(s1);
+var c=document.getElementById('circle');
+var ctx=c.getContext('2d');
+ctx.beginPath();
+ctx.arc(100,100,num1,0,2*Math.PI);
+ctx.stroke();
+}
+function square(){
+var s="<center><b>length of side</b> <input type='number' id='sqside'><br><button style='cellspacing:50px' onclick='squareparameters()'>SUBMIT</button></center>";
+document.write("<center><h1>ENTER THE LENGTH OF SIDE IN PIXELS</h1></center>"+s);
+}
+function squareparameters(){
+var num1=parseInt(document.getElementById('sqside').value);
+var area=num1*num1;
+var perimeter=4*num1;
+document.write("<center><h1>AREA OF SQUARE IS "+area+"<br></h1></center>");
+document.write("<center><h1>PERIMETER OF SQUARE IS "+perimeter+"<br></h1></center>");
+var s1="<center><canvas id='square' width='1000' height='1000'></center>";
+document.write(s1);
+var c=document.getElementById('square');
+var ctx=c.getContext('2d');
+ctx.rect(100,100,num1,num1);
+ctx.stroke();
+}
+function rectangle(){
+var l="<center><b>length of rectangle</b> <input type='number' id='rectlength'><br>";
+var b="<center><b>breadth of rectangle</b> <input type='number' id='rectbreadth'><br><button style='cellspacing:500px;'onclick='rectparameters()'>SUBMIT</button></center>";
+
+document.write("<center><h1>ENTER THE LENGTH OF RECTANGLE IN PIXELS</h1></center>"+l);
+document.write("<center><h1>ENTER THE BREADTH OF RECTANGLE IN PIXELS</h1></center>"+b);
+
+}
+function rectparameters(){
+var num1=parseInt(document.getElementById('rectlength').value);
+var num2=parseInt(document.getElementById('rectbreadth').value);
+var area=num1*num2;
+var perimeter=2*(num1+num2);
+document.write("<center><h1>AREA OF RECTANGLE IS "+area+"<br></h1></center>");
+document.write("<center><h1>PERIMETER OF RECTANGLE IS "+perimeter+"<br></h1></center>");
+var s1="<center><canvas id='rectangle' width='1000' height='1000'></center>";
+document.write(s1);
+var c=document.getElementById('rectangle');
+var ctx=c.getContext('2d');
+ctx.rect(100,100,num1,num2);
+ctx.stroke();
+}
+function triangle1(){
+var a="<center><b>a(BC)</b> <input type='number' id='a'><br>";
+var b="<center><b>b(AC)</b> <input type='number' id='b'><br>"
+var c="<center><b>c(AB)</b><input type='number' id='c'><br><button onclick='triparameters()'>SUBMIT</button></center>";
+
+document.write("<center><h1>ENTER THE LENGTH OF a IN PIXELS</h1></center>"+a);
+document.write("<center><h1>ENTER THE LENGTH OF b IN PIXELS</h1></center>"+b);
+document.write("<center><h1>ENTER THE LENGTH OF c IN PIXELS</h1></center>"+c);
+
+}
+function triparameters(){
+var a=parseInt(document.getElementById('a').value);
+var b=parseInt(document.getElementById('b').value);
+var c=parseInt(document.getElementById('c').value);
+
+var s=(a+b+c)/2;
+var area=Math.sqrt(s*(s-a)*(s-b)*(s-c))
+var perimeter=(a+b+c);
+document.write("<center><h1>AREA OF TRIANGLE IS "+area+"<br></h1></center>");
+document.write("<center><h1>PERIMETER OF TRIANGLE IS "+perimeter+"<br></h1></center>");
+var s1="<center><canvas id='triangle' width='1000' height='1000'></center>";
+document.write(s1);
+var c=document.getElementById('triangle');
+var ctx=c.getContext('2d');
+ctx.beginPath();
+ctx.moveTo(a,100);
+ctx.lineTo(100,b);
+ctx.lineTo(a,b);
+ctx.closePath();
+ctx.stroke();
+
+}
+</script>
+
+<center>
+<h1>GEOMETRIC FIGURES</h1>
+<button style="margin:50px" onclick="circle()"><h1>CIRCLE</h1></button>
+<button onclick="rectangle()"><h1>RECTANGLE</h1></button><br>
+<button style="margin:50px" onclick='square()'><h1>SQUARE</h1></button>
+<button onclick='triangle1()'><h1>TRIANGLE</h1></button>
+<center>
+</body>
+</html>
